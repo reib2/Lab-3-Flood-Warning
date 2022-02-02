@@ -15,4 +15,4 @@ closest = stations_distance[:10] #slices list to include the 10 locations closes
 furthest = stations_distance[-10:] #slices list to include the 10 locations furthest from p 
 
 print ("The ten stations closest to Cambridge City Centre are: " + str(closest))
-print ("The ten stations furthest from Cambridge City Centre are: " + str(furthest))
+print ("\nThe ten stations furthest from Cambridge City Centre are: " + str(furthest))

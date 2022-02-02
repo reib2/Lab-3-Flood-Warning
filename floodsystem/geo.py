@@ -7,14 +7,13 @@ geographical data.
 """
 
 from .utils import sorted_by_key  # noqa
-from floodsystem.stationdata import build_station_list
+from haversine import haversine, Unit #import haversine function from library
+from floodsystem.utils import sorted_by_key
 
 
 def stations_by_distance(stations, p): 
     """This module sorts stations by distance and returns a 
     list of (station, town, distance) tupules."""
-   
-    from haversine import haversine, Unit #import haversine function from library
 
     list_station_dist = [] #initiates list to store stations and distance 
       
@@ -26,4 +25,21 @@ def stations_by_distance(stations, p):
     sorted_list = sorted_by_key(list_station_dist, 2) #use sorting module to sort by distance
 
     return sorted_list 
+
+
+
+def stations_within_radius(stations, centre, r): 
+   
+    list_within_radius = []
+
+    for station in stations:
+        distance = haversine(station.coord, centre)
+        if distance < r: 
+            list_within_radius.append(station.name)
+
+    sorted_list = sorted_by_key(list_within_radius, 0)
+
+    return sorted_list
+
+
 
