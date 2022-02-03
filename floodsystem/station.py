@@ -39,12 +39,33 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
     
+
+    #incomplete for task 1F 
     def typical_range_consistent(self):
-        if self.typical_range == ():
-            return False 
-        elif self.typical_range(0) > self.typical_range(1):
-            return False 
+        """This method checks the typical high/low range data for consistency"""
+        range = self.typical_range #can this be done more simply??
+        return (range[0])
+
+
+"""        if range == (): #check if no data 
+            return False
+        elif upper > lower: #check if typical low larger than high 
+            return False
         else:
             return True 
-    
+"""
+
+
+#incomplete for task 1F...
+def inconsistent_typical_range_stations(stations): 
+    return 
+
+"""    inconsistent_stations = []
+
+    for station in stations: 
+        consistency = station.typical_range_consistent()
+        if consistency == False:
+            inconsistent_stations.append(station.name)
+
+    return inconsistent_stations"""
 

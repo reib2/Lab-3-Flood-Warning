@@ -88,12 +88,3 @@ def update_water_levels(stations):
             if isinstance(measure_id_to_value[station.measure_id], float):
                 station.latest_level = measure_id_to_value[station.measure_id]
 
-
-#incomplete for task 1F...
-def inconsistent_typical_range_stations(stations): 
-
-    inconsistent_stations = []
-
-    for station in stations: 
-        if MonitoringStation.typical_range_consistent == False:
-            inconsistent_stations.apped 
