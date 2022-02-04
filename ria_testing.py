@@ -7,13 +7,10 @@ from floodsystem.stationdata import build_station_list
 
 stations = build_station_list() #builds list of stations 
 
-inconsistent_stations = inconsistent_typical_range_stations(stations)
+single_station = stations[0]
 
+inconsistent_stations =  single_station.typical_range_consistent()
 
 print (inconsistent_stations)
 
 
-
-tuple = (0,1)
-
-print (tuple[0])
