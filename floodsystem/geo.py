@@ -6,6 +6,7 @@ geographical data.
 
 """
 
+from sqlalchemy import true
 from .utils import sorted_by_key  # noqa
 from haversine import haversine, Unit #import haversine function from library
 from floodsystem.utils import sorted_by_key
@@ -47,11 +48,22 @@ def stations_within_radius(stations, centre, r):
 
 
 def rivers_with_station(stations):
-    "This module returns a set with the names of rivers with moitoring stations given a list of station objects"
+    "This module returns a set with the names of rivers with moitoring stations"
+    rivers_with_stations = set()
+    for station in stations:
+        rivers_with_stations.add(station.river)
+
+    return rivers_with_stations
 
 
 def stations_by_river(stations):
     "This module returns a dictionary that maps river names to a list of station objects on a given river"
+    names_and_stations = {}
+    for station in stations:
+        names_and_stations["station.river"] = "station.name"
+    
+    return names_and_stations
+    
 
 def rivers_by_station_number(stations, N):
     "This module returns a list of tuples sorted by the number os stations"
