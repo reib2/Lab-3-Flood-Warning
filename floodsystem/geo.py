@@ -29,15 +29,18 @@ def stations_by_distance(stations, p):
 
 
 def stations_within_radius(stations, centre, r): 
+    """This module returns a list of stations within a given 
+    radius of a coordinat."""
    
-    list_within_radius = []
+    list_within_radius = [] #initiates list to store station names
 
+    #iterate through stations and check if within radius 
     for station in stations:
         distance = haversine(station.coord, centre)
         if distance < r: 
             list_within_radius.append(station.name)
 
-    sorted_list = sorted_by_key(list_within_radius, 0)
+    sorted_list = sorted_by_key(list_within_radius, 0) #use sorting module to sort by distance
 
     return sorted_list
 
