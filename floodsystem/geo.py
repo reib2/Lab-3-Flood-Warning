@@ -43,3 +43,12 @@ def stations_within_radius(stations, centre, r):
 
 
 
+def rivers_with_station(stations):
+    "This module returns a set with the names of rivers with moitoring stations given a list of station objects"
+
+
+def stations_by_river(stations):
+    "This module returns a dictionary that maps river names to a list of station objects on a given river"
+
+def rivers_by_station_number(stations, N):
+    "This module returns a list of tuples sorted by the number os stations"
