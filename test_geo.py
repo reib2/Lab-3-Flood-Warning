@@ -1,10 +1,13 @@
-"""Unit test for sort_by_distance function in the geo module"""
+"""Unit test for functions in the geo module"""
 
 from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation 
 #from floodsystem.stationdata import build_station_list
 
+
 def test_stations_by_distance():
+    """This function tests that the stations_by_distance function correctly
+    calculates the distance between a station and given point."""
 
 # Create a test station
     s_id = "test-s-id"
@@ -16,18 +19,16 @@ def test_stations_by_distance():
     town = "My Town"
     test_station = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
 
-    test_station_list = []
-
+    test_station_list = [] #create a list to pass to the function so data is in correct form
     test_station_list.append(test_station)
-
     p = (52.2053,0.1218)
 
-    stations_distance = stations_by_distance(test_station_list, p)
+    stations_distance = stations_by_distance(test_station_list, p) #call function
 
-    x = abs(stations_distance[0][2] - 6038.3717730613525)
+    distance = abs(stations_distance[0][2] - 6038.3717730613525) #calculate difference between calculated distance value and correct value
 
-    assert x <= 0.00001
-
+    assert distance <= 0.00001 
+    
 
 
 
