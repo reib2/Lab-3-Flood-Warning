@@ -2,6 +2,8 @@
 
 import floodsystem.geo 
 from floodsystem.stationdata import build_station_list
+from haversine import haversine, Unit #import haversine function from library
+
 
 
 def test_stations_by_distance():
