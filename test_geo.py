@@ -13,7 +13,7 @@ def test_stations_by_distance():
     calculates the distance between a station and given point."""
 
 # Create a test station
-"""    s_id = "test-s-id"
+    """s_id = "test-s-id"
     m_id = "test-m-id"
     label = "some station"
     coord = (-2.0, 4.0)
