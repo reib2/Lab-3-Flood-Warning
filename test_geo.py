@@ -23,7 +23,6 @@ def test_stations_by_distance():
     test_station = MonitoringStation(s_id, m_id, label, coord, trange, river, town)"""
 
     test_station = test_create_monitoring_station()
-
     test_station_list = [] #create a list to pass to the function so data is in correct form
     test_station_list.append(test_station)
     p = (52.2053,0.1218)
@@ -35,3 +34,18 @@ def test_stations_by_distance():
     assert distance <= 0.00001 
 
 def test_stations_within_radius():
+
+    test_station = test_create_monitoring_station()
+    test_station_list = [] #create a list to pass to the function so data is in correct form
+    test_station_list.append(test_station)
+    centre = (52.2053,0.1218) #distance to measure from 
+    radius = 6038
+
+    stations_within = stations_within_radius(test_station_list, centre, radius)
+
+    assert stations_within == []
+
+
+
+
+
