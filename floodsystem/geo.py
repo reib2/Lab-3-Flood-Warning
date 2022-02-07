@@ -73,4 +73,30 @@ def stations_by_river(stations):
     
 
 def rivers_by_station_number(stations, N):
-    "This module returns a list of tuples sorted by the number os stations"
+    "This module returns a list of tuples sorted by the number of stations"
+    rivers_and_number = []
+    names_and_stations = stations_by_river(stations)
+    list_stations = []
+    a = list(names_and_stations.items())
+
+    for i in range (len(a)):
+        b = list(a[i])
+        list_stations = b[1]
+        river = b[0]
+        number = len(list_stations)
+        t = (river, number)
+        rivers_and_number.append(t)
+    
+    rivers_and_number = sorted_by_key(rivers_and_number, 1)
+    rivers_and_number.reverse()
+    station_number = []
+    for i in range(len(rivers_and_number)):
+        c = list(rivers_and_number[i])
+        d = c[1]
+        station_number.append(d)
+    for i in range(1,100):
+        if station_number[N-1] == station_number[N-1+i]:
+            N = N + i
+            i += 1
+    rivers_and_number = rivers_and_number[0:N]
+    return rivers_and_number
