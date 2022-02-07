@@ -12,7 +12,6 @@ def test_stations_by_distance():
     """This function tests that the stations_by_distance function correctly
     calculates the distance between a station and given point."""
 
-# Create a test station
     """s_id = "test-s-id"
     m_id = "test-m-id"
     label = "some station"
@@ -21,7 +20,8 @@ def test_stations_by_distance():
     river = "River X"
     town = "My Town"
     test_station = MonitoringStation(s_id, m_id, label, coord, trange, river, town)"""
-
+    
+    #Create a test station
     test_station = test_create_monitoring_station()
     test_station_list = [] #create a list to pass to the function so data is in correct form
     test_station_list.append(test_station)
@@ -34,7 +34,9 @@ def test_stations_by_distance():
     assert distance <= 0.00001 
 
 def test_stations_within_radius():
-
+    """This function tests whether the function excludes a station
+     from the list if it is out of radius."""
+     
     test_station = test_create_monitoring_station()
     test_station_list = [] #create a list to pass to the function so data is in correct form
     test_station_list.append(test_station)
