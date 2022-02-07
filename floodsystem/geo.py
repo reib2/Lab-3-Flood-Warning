@@ -60,8 +60,15 @@ def stations_by_river(stations):
     "This module returns a dictionary that maps river names to a list of station objects on a given river"
     names_and_stations = {}
     for station in stations:
-        names_and_stations["station.river"] = "station.name"
-    
+        river = station.river
+        if river not in names_and_stations.keys():
+            list_stations = [station.name]
+            names_and_stations.update({river : list_stations})
+        else:
+            list_stations = names_and_stations[river]
+            list_stations.append(station.name)
+            names_and_stations.update({river : list_stations})
+
     return names_and_stations
     
 
