@@ -5,6 +5,7 @@
 for manipulating/modifying station data
 
 """
+from floodsystem.utils import sorted_by_key
 
 
 class MonitoringStation:
@@ -43,27 +44,32 @@ class MonitoringStation:
     #incomplete for task 1F 
     def typical_range_consistent(self):
         """This method checks the typical high/low range data for consistency"""
-        range = self.typical_range #can this be done more simply??
 
+        range = self.typical_range 
         consistent = True #initiate the consistent variable with True
 
-        if range == (): #check if tuple is empty 
+        if range == None: #check if tuple is empty 
             consistent = False
         elif range[0] > range[1]: #check if the lower value is greater than the higher value
             consistent = False
+
         return consistent
      
 
 #incomplete for task 1F...
 def inconsistent_typical_range_stations(stations): 
-    "This function..."
+    """This function returns an alphabetically sorted list of
+    stations with inconsistent data for typical range. """
 
-    inconsistent_stations = []
+    inconsistent_stations = [] #initiate list to store stations 
 
+    #iterate through stations and call method to check consistency
     for station in stations:
         consistent = station.typical_range_consistent()
         if consistent == False:
             inconsistent_stations.append(station.name)
+    
+    sorted_list = sorted_by_key(inconsistent_stations, 0) #use sorting module to sort by distance
         
-    return inconsistent_stations
+    return sorted_list
 

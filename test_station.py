@@ -27,6 +27,6 @@ def test_create_monitoring_station():
     assert s.river == river
     assert s.town == town
 
-        
+
     return s 
 
