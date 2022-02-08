@@ -69,10 +69,7 @@ def test_stations_by_river():
 
 
 def test_rivers_by_station_number():
-    "This function tests that the function returns a correct tuple"
-    test_station = test_create_monitoring_station()
-    test_station_list = []
-    test_station_list.append(test_station)
-    z = rivers_by_station_number(test_station_list, N = 1)
-
+    "This function tests that the function returns a list of tuples"
+    z = rivers_by_station_number(stations, N = 1)
+    assert all(isinstance(item, tuple) for item in z)
 
