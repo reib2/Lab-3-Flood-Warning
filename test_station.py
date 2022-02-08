@@ -37,6 +37,6 @@ def test_inconsistent_typical_range_stations():
     test_station = test_create_monitoring_station()
     test_station_list = []
     test_station_list.append(test_station)
-    w = inconsistent_typical_range_stations(test_station)
+    w = inconsistent_typical_range_stations(test_station_list)
 
-    assert type(w) == list()
+    assert type(w) == list

@@ -1,5 +1,6 @@
 """Unit test for functions in the geo module"""
 
+from sqlalchemy import true
 from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation 
 from floodsystem.geo import stations_within_radius
@@ -52,7 +53,9 @@ def test_stations_within_radius():
 
 def test_rivers_with_station():
     "This function tests that the function can be called successfully"
-    x = rivers_with_station()
+    x = rivers_with_station(stations)
+    assert type(x) == set
+
 
 
 def test_stations_by_river():
