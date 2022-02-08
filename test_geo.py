@@ -4,9 +4,12 @@ from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation 
 from floodsystem.geo import stations_within_radius
 from test_station import test_create_monitoring_station
+from floodsystem.geo import rivers_with_station
+from floodsystem.stationdata import build_station_list
+from floodsystem.geo import stations_by_river
+from floodsystem.geo import rivers_by_station_number
 
-#from floodsystem.stationdata import build_station_list
-
+stations = build_station_list()
 
 def test_stations_by_distance():
     """This function tests that the stations_by_distance function correctly
@@ -47,7 +50,26 @@ def test_stations_within_radius():
 
     assert stations_within == []
 
+def test_rivers_with_station():
+    "This function tests that the function can be called successfully"
+    x = rivers_with_station()
 
 
+def test_stations_by_river():
+    "This function tests that the function maps a river to its monitoring station"
+    test_station = test_create_monitoring_station()
+    test_station_list = []
+    test_station_list.append(test_station)
+    y = stations_by_river(test_station_list)
+
+    assert y == {'River X': ['some station']}
+
+
+def test_rivers_by_station_number():
+    "This function tests that the function returns a correct tuple"
+    test_station = test_create_monitoring_station()
+    test_station_list = []
+    test_station_list.append(test_station)
+    z = rivers_by_station_number(test_station_list, N = 1)
 
 
