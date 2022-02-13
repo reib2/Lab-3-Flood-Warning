@@ -6,6 +6,7 @@ for manipulating/modifying station data
 
 """
 from floodsystem.utils import sorted_by_key
+from floodsystem.stationdata import 
 
 
 class MonitoringStation:
@@ -41,7 +42,6 @@ class MonitoringStation:
         return d
     
 
-    #incomplete for task 1F 
     def typical_range_consistent(self):
         """This method checks the typical high/low range data for consistency"""
 
@@ -54,9 +54,32 @@ class MonitoringStation:
             consistent = False
 
         return consistent
+
+    def relative_water_level(self):
+
+        range = self.typical_range
+        level = self.latest_level
+
+        if self.typical_range_consistent == False:#do we need to call self
+            return None      
+        else: 
+
+            
+
+
+
+
+
+
+        return None
      
 
-#incomplete for task 1F...
+
+
+
+
+
+
 def inconsistent_typical_range_stations(stations): 
     """This function returns an alphabetically sorted list of
     stations with inconsistent data for typical range. """
