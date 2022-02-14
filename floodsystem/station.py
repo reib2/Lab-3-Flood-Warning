@@ -6,7 +6,6 @@ for manipulating/modifying station data
 
 """
 from floodsystem.utils import sorted_by_key
-from floodsystem.stationdata import 
 
 
 class MonitoringStation:
@@ -50,28 +49,27 @@ class MonitoringStation:
 
         if range == None: #check if tuple is empty 
             consistent = False
+    
         elif range[0] > range[1]: #check if the lower value is greater than the higher value
             consistent = False
 
         return consistent
+
 
     def relative_water_level(self):
 
         range = self.typical_range
         level = self.latest_level
 
-        if self.typical_range_consistent == False:#do we need to call self
+        if self.typical_range_consistent() == False: 
             return None      
+        elif level == None:
+            return None
         else: 
-
-            
-
-
-
-
-
-
-        return None
+            step = (range[1] - range[0]) / 10
+            fraction = 1 - (range[1] - level) * step 
+            #print (fraction)
+            return fraction    
      
 
 
