@@ -1,4 +1,4 @@
-"""Unit test for functions in the geo module"""
+"""Unit tests for functions in the geo module"""
 
 from sqlalchemy import true
 from floodsystem.geo import stations_by_distance
