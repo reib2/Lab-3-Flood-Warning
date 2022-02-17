@@ -2,7 +2,7 @@
 from test_station import test_create_monitoring_station
 
 from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.flood import stations_level_over_threshold
+from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level 
 from floodsystem.station import MonitoringStation
 
 
@@ -20,5 +20,8 @@ def test_stations_level_over_threshold():
 
     #assert test_over_level[0] != None
 
-
+def test_stations_highest_rel_level():
+    stations = ""
+    N = 10
+    return None
 
