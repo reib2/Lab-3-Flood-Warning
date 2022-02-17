@@ -57,18 +57,19 @@ class MonitoringStation:
 
 
     def relative_water_level(self):
+        """This method returns the current water level as a fraction
+        of the typical range."""
 
-        range = self.typical_range
+        range = self.typical_range  
         level = self.latest_level
 
-        if self.typical_range_consistent() == False: 
+        if self.typical_range_consistent() == False: #check if range is consistent
             return None      
         elif level == None:
             return None
         else: 
-            step = (range[1] - range[0]) / 10
-            fraction = 1 - (range[1] - level) * step 
-            #print (fraction)
+            step = 1 / (range[1] - range[0]) #calulate the value of a fraction increment of 0.1 
+            fraction = step * (level - range[0]) #calculate the fraction 
             return fraction    
      
 
