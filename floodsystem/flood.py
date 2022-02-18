@@ -33,9 +33,9 @@ def stations_highest_rel_level(stations, N):
     
     sorted_list = sorted_by_key(full_station_list, 1, True) #sort high to low 
 
-    top_ten = sorted_list[:N] #slice list to include top ten entities 
+    top_N = sorted_list[:N] #slice list to include top ten entities 
 
-    return top_ten
+    return top_N
 
 
 
