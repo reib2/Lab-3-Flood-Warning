@@ -23,7 +23,7 @@ del five_stations[0]
 print(five_stations)
 for station in five_stations:
    
-    dt = 2
+    dt = 10
     dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
 
     p=4
