@@ -12,14 +12,15 @@ from floodsystem.analysis import polyfit
 
 stations = build_station_list()
 update_water_levels(stations)
-N= 5
+N= 6
 
 five_stations_levels = stations_highest_rel_level(stations, N)
 five_stations = []
 for i in five_stations_levels:
     five_stations.append(i[0])
 
-
+del five_stations[0]
+print(five_stations)
 for station in five_stations:
    
     dt = 2
