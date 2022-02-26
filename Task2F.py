@@ -1,11 +1,14 @@
 import matplotlib.pyplot as plt
-import datetime
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.stationdata import build_station_list
-from floodsystem.plot import plot_water_levels
+import matplotlib
+import numpy as np
+import datetime
+from floodsystem.plot import plot_water_levels, plot_water_level_with_fit
 from floodsystem.stationdata import update_water_levels
 from floodsystem.flood import stations_highest_rel_level
 from floodsystem.station import MonitoringStation
+from floodsystem.analysis import polyfit
 
 stations = build_station_list()
 update_water_levels(stations)
@@ -19,7 +22,9 @@ for i in five_stations_levels:
 
 for station in five_stations:
    
-    dt = 10
+    dt = 2
     dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
 
-    plot_water_levels(station, dates, levels)
+    p=4
+
+    plot_water_level_with_fit(station, dates, levels, p)
