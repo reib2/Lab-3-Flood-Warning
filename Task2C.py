@@ -11,6 +11,6 @@ top_N = stations_highest_rel_level(stations, N)
 
 
 for station in top_N: 
-    print (str(station[0]) + " " + str(station[1]))
+    print (str(station[0].name) + " " + str(station[1]))
 
 

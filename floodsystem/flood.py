@@ -29,7 +29,7 @@ def stations_highest_rel_level(stations, N):
     for station in stations:
         fraction = station.relative_water_level() #call function to return relative level fraction
         if fraction != None:  #check that data consistent
-            full_station_list.append((station.name, fraction)) #append tuple to list 
+            full_station_list.append((station, fraction)) #append tuple to list 
     
     sorted_list = sorted_by_key(full_station_list, 1, True) #sort high to low 
 
