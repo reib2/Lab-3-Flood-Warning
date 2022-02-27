@@ -24,6 +24,8 @@ def test_stations_level_over_threshold():
     assert test_over_level != [] #assert to check a list item is returned
 
 def test_stations_highest_rel_level():
+    """This function tests the stations_highest_rel_level 
+    function in the flood module."""
 
     test_station = test_create_monitoring_station() #create test monitoring station
     test_station.latest_level = 1.0 #give test station a latest level value
