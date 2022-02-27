@@ -11,18 +11,21 @@ def plot_water_levels(station, dates, levels):
     
      plt.plot(dates,levels)
 
-     lower_range = station.typical_range[0]
-     higher_range = station.typical_range[1]
+     if len(station.typical_range) != 0:
 
-     higher = []
-     lower = []
 
-     for i in range (len(dates)):
-          higher.append(higher_range)
-          lower.append(lower_range)
+          lower_range = station.typical_range[0]
+          higher_range = station.typical_range[1]
 
-     plt.plot(dates, higher)
-     plt.plot(dates, lower)
+          higher = []
+          lower = []
+
+          for i in range (len(dates)):
+               higher.append(higher_range)
+               lower.append(lower_range)
+
+          plt.plot(dates, higher)
+          plt.plot(dates, lower)
     
      plt.xlabel('date')
      plt.ylabel('water level (m)')

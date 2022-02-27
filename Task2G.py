@@ -12,20 +12,20 @@ from floodsystem.analysis import polyfit
 
 stations = build_station_list()
 update_water_levels(stations)
-N= 6
+stations = stations[:10]
 
-five_stations_levels = stations_highest_rel_level(stations, N)
-five_stations = []
-for i in five_stations_levels:
-    five_stations.append(i[0])
+dt = 2
 
-del five_stations[0]
-print(five_stations)
-for station in five_stations:
-   
-    dt = 2
+at_risk =[]
+
+for station in stations:
     dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
-
-    p=4
-
+    p=1
+    poly, d0 = polyfit(dates, levels, p)
+    slope = np.gradient(poly)
     plot_water_level_with_fit(station, dates, levels, p)
+    if slope[1] > 0:
+        at_risk.append(station.name)
+
+
+print(at_risk)
