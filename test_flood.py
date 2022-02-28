@@ -3,6 +3,8 @@ from test_station import test_create_monitoring_station
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 from floodsystem.station import MonitoringStation
+from floodsystem.flood import flood_warning
+
 
 
 def test_stations_level_over_threshold():
@@ -38,5 +40,16 @@ def test_stations_highest_rel_level():
     assert top_N1 != []
     assert top_N0 == []
  
+
+
+"""def test_flood_warning():
+    test_station = test_create_monitoring_station() #create test monitoring station
+    test_station.latest_level = 1.0 #give test station a latest level value
+    test_station_list = [] #create a list to pass to the function so data is in correct form
+    test_station_list.append(test_station) 
+
+    warning = flood_warning(test_station_list)
+
+    assert warning"""
 
 
